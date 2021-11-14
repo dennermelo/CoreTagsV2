@@ -1,0 +1,25 @@
+Rarities:
+  normal:
+    name: Normal
+    format: '&7Normal'
+    icon: '351:8'
+  rare:
+    name: Rare
+    format: '&bRare'
+    icon: '351:12'
+  epic:
+    name: Epic
+    format: '&dEpic'
+    icon: '351:13'
+  legendary:
+    name: Legendary
+    format: '&5Legendary'
+    icon: '351:14'
+  mythic:
+    name: Mythic
+    format: '&cMythic'
+    icon: '351:1'
+  ancient:
+    name: Ancient
+    format: '&6Ancient'
+    icon: '351:11'

@@ -1,0 +1,6 @@
+name: CoreTags
+version: 1.0.0
+main: com.github.dennermelo.core.tags.CoreTags
+softdepend: [ Legendchat ]
+commands:
+  tags:
