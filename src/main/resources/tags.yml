@@ -1,0 +1,190 @@
+Tags:
+  Pro:
+    name: 'Pro'
+    format: '&6[Professional]'
+    price: 1200.00
+    economy: 'coins'
+    exclusive: false
+    rarity: 'rare'
+    description:
+      - 'Destined for the most experienced players.'
+  Elite:
+    name: 'Elite'
+    format: '&3[Elite]'
+    price: 1800.00
+    economy: 'cash'
+    exclusive: false
+    rarity: 'legendary'
+    description:
+      - 'Destined for the players that have'
+      - 'been playing for a long time.'
+  Master:
+    name: 'Master'
+    format: '&2[Master]'
+    price: 2400.00
+    economy: 'cash'
+    exclusive: false
+    rarity: 'ancient'
+    description:
+      - 'Destined for the most experienced players'
+      - 'who have been playing for a long time.'
+  Grandmaster:
+    name: 'Grandmaster'
+    format: '&b[Grandmaster]'
+    price: 3000.00
+    economy: 'cash'
+    exclusive: false
+    rarity: 'mythic'
+    description:
+      - 'Destined for the most experienced players'
+      - 'who have been playing for a long time.'
+  Legendary:
+    name: 'Legendary'
+    format: '&6&l[Legendary]'
+    price: 3600.00
+    economy: 'cash'
+    exclusive: false
+    rarity: 'legendary'
+    description:
+      - 'Destined for the most experienced players'
+      - 'who have been playing for a long time.'
+  Epic:
+    name: 'Epic'
+    format: '&d[Epic]'
+    price: 4200.00
+    economy: 'coins'
+    exclusive: false
+    rarity: 'rare'
+    description:
+      - 'Destined for the most experienced players'
+      - 'who have been playing for a long time.'
+  Noob:
+    name: 'Noob'
+    format: '&9[Noob]'
+    price: 4800.00
+    economy: 'coins'
+    exclusive: false
+    rarity: 'normal'
+    description:
+      - 'Destined for the players who have'
+      - 'been playing for a short time.'
+  Beginner:
+    name: 'Beginner'
+    format: '&e[Beginner]'
+    price: 5400.00
+    economy: 'coins'
+    exclusive: false
+    rarity: 'normal'
+    description:
+      - 'Destined for the players who have'
+      - 'been playing for a short time.'
+  Newbie:
+    name: 'Newbie'
+    format: '&7[Newbie]'
+    price: 6000.00
+    economy: 'coins'
+    exclusive: false
+    rarity: 'normal'
+    description:
+      - 'Destined for the players who have'
+      - 'been playing for a short time.'
+  Rookie:
+    name: 'Rookie'
+    format: '&b[Rookie]'
+    price: 6600.00
+    economy: 'coins'
+    exclusive: false
+    rarity: 'normal'
+    description:
+      - 'Destined for the players who have'
+      - 'been playing for a short time.'
+  Ultra:
+    name: 'Ultra'
+    format: '&6[Ultra]'
+    price: 7200.00
+    economy: 'coins'
+    exclusive: false
+    rarity: 'rare'
+    description:
+      - 'Destined for the players who have'
+      - 'been playing for a short time.'
+  Veteran:
+    name: 'Veteran'
+    format: '&3[Veteran]'
+    price: 7800.00
+    economy: 'cash'
+    exclusive: false
+    rarity: 'legendary'
+    description:
+      - 'Destined for the players who have'
+      - 'been playing for a short time.'
+  Ultimate:
+    name: 'Ultimate'
+    format: '&2[Ultimate]'
+    price: 8400.00
+    economy: 'cash'
+    exclusive: false
+    rarity: 'rare'
+    description:
+      - 'Destined for the players who have'
+      - 'been playing for a short time.'
+  Horizon:
+    name: 'Horizon'
+    format: '&b[Horizon]'
+    price: 9000.00
+    economy: 'cash'
+    exclusive: false
+    rarity: 'mythic'
+    description:
+      - 'Destined for the players who have'
+      - 'been playing for a short time.'
+  Legend:
+    name: 'Legend'
+    format: '&6&l[Legend]'
+    price: 9600.00
+    economy: 'cash'
+    exclusive: false
+    rarity: 'epic'
+    description:
+      - 'Destined for the players who have'
+      - 'been playing for a short time.'
+  Hiroshima:
+    name: 'Hiroshima'
+    format: '&d[Hiroshima]'
+    price: 10200.00
+    economy: 'coins'
+    exclusive: false
+    rarity: 'epic'
+    description:
+      - 'Destined for the players who have'
+      - 'been playing for a short time.'
+  Rich:
+    name: 'Rich'
+    format: '&9[Rich]'
+    price: 10800.00
+    economy: 'coins'
+    exclusive: false
+    rarity: 'rare'
+    description:
+      - 'Destined for the players who have'
+      - 'been playing for a short time.'
+  Poor:
+    name: 'Poor'
+    format: '&e[Poor]'
+    price: 11400.00
+    economy: 'coins'
+    exclusive: false
+    rarity: 'normal'
+    description:
+      - 'Destined for the players who have'
+      - 'been playing for a short time.'
+  Amateur:
+    name: 'Amateur'
+    format: '&7[Amateur]'
+    price: 12000.00
+    economy: 'coins'
+    exclusive: false
+    rarity: 'normal'
+    description:
+      - 'Destined for the players who have'
+      - 'been playing for a short time.'
