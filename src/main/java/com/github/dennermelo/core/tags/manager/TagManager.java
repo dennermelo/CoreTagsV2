@@ -2,8 +2,8 @@ package com.github.dennermelo.core.tags.manager;
 
 import com.github.dennermelo.core.tags.CoreTags;
 import com.github.dennermelo.core.tags.enums.EconomyType;
-import com.github.dennermelo.core.tags.model.Tag;
 import com.github.dennermelo.core.tags.model.Rarity;
+import com.github.dennermelo.core.tags.model.Tag;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -51,11 +51,7 @@ public class TagManager {
             String name = tagsConfiguration.get("Tags." + tagKey + ".name").toString();
             String format = tagsConfiguration.get("Tags." + tagKey + ".format").toString().replace("&", "§");
             double price = Double.parseDouble(tagsConfiguration.get("Tags." + tagKey + ".price").toString());
-            EconomyType economyType = null;
-            if (tagsConfiguration.getString("Tags." + tagKey + ".economy").equalsIgnoreCase("coins"))
-                economyType = EconomyType.COINS;
-            if (tagsConfiguration.getString("Tags." + tagKey + ".economy").equalsIgnoreCase("cash"))
-                economyType = EconomyType.CASH;
+            EconomyType economyType = EconomyType.valueOf(tagsConfiguration.get("Tags." + tagKey + ".economy").toString().toUpperCase());
             boolean exclusive = Boolean.parseBoolean(tagsConfiguration.get("Tags." + tagKey + ".exclusive").toString());
             Rarity rarity = CoreTags.getRarityManager().getRarity(tagsConfiguration.get("Tags." + tagKey + ".rarity").toString());
             List<String> description = tagsConfiguration.getStringList("Tags." + tagKey + ".description");

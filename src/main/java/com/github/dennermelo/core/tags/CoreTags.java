@@ -14,17 +14,27 @@ import com.github.dennermelo.core.tags.model.inventory.InventoryListener;
 import com.github.dennermelo.core.tags.model.inventory.item.ItemList;
 import com.github.dennermelo.core.tags.setting.Settings;
 import com.github.dennermelo.core.tags.sql.SQLManager;
+import com.github.dennermelo.core.tags.type.Messages;
+import lombok.Getter;
 import lombok.SneakyThrows;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
+@Getter
 public class CoreTags extends JavaPlugin {
 
+    @Getter
     private static SQLManager sqlManager;
+    @Getter
     private static RarityManager rarityManager;
+    @Getter
     private static TagManager tagManager;
+    @Getter
     private static UserManager userManager;
 
+    public static JavaPlugin getInstance() {
+        return getPlugin(CoreTags.class);
+    }
 
     @SneakyThrows
     @Override
@@ -48,7 +58,9 @@ public class CoreTags extends JavaPlugin {
         tagManager.load(this);
 
         // Loading item cache;
-        new ItemList().load();
+        ItemList.load(getInstance().getConfig());
+
+        Messages.load();
 
         // Checking if Legendchat plugin is installed;
         if (Bukkit.getPluginManager().isPluginEnabled("Legendchat")) {
@@ -68,30 +80,23 @@ public class CoreTags extends JavaPlugin {
         // Loading users;
         userManager.load();
 
+        runAutoSave();
     }
 
     @Override
     public void onDisable() {
-
         // Saving all users;
         userManager.save();
     }
 
-    // Getters and Setters
-    public static SQLManager getSqlManager() {
-        return sqlManager;
-    }
-
-    public static RarityManager getRarityManager() {
-        return rarityManager;
-    }
-
-    public static TagManager getTagManager() {
-        return tagManager;
-    }
-
-    public static UserManager getUserManager() {
-        return userManager;
+    public void runAutoSave() {
+        Bukkit.getScheduler().runTaskLater(this, new Runnable() {
+            @Override
+            public void run() {
+                getUserManager().save();
+                getLogger().info("[Auto-Save] All users have been updated in database.");
+            }
+        }, 480 * 20L);
     }
 
 }

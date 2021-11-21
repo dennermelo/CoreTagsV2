@@ -22,8 +22,18 @@ public class User {
         return tags;
     }
 
+    public void setTags(List<Tag> tags) {
+        this.tags.clear();
+        this.tags.addAll(tags);
+    }
+
     public List<Tag> getTagsInUse() {
         return tagsInUse;
+    }
+
+    public void setTagsInUse(List<Tag> tagsInUse) {
+        this.tagsInUse.clear();
+        this.tagsInUse.addAll(tagsInUse);
     }
 
     public void addTag(Tag tag) {
@@ -58,16 +68,6 @@ public class User {
             }
         }
         return null;
-    }
-
-    public void setTagsInUse(List<Tag> tagsInUse) {
-        this.tagsInUse.clear();
-        this.tagsInUse.addAll(tagsInUse);
-    }
-
-    public void setTags(List<Tag> tags) {
-        this.tags.clear();
-        this.tags.addAll(tags);
     }
 
 }

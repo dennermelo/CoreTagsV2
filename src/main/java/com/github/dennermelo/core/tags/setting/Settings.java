@@ -3,6 +3,8 @@ package com.github.dennermelo.core.tags.setting;
 import com.github.dennermelo.core.tags.CoreTags;
 import org.bukkit.configuration.file.FileConfiguration;
 
+import java.util.List;
+
 public enum Settings {
 
     MYSQL_USER("Connection.MySQL.username"),
@@ -10,7 +12,10 @@ public enum Settings {
     MYSQL_HOST("Connection.MySQL.host"),
     MYSQL_PORT("Connection.MySQL.port"),
     MYSQL_DATABASE("Connection.MySQL.database"),
-    MAX_TAGS_IN_USE("Preferences.max-tags-in-use");
+    MAX_TAGS_IN_USE("Preferences.max-tags-in-use"),
+    ECONOMY_CASH_FORMAT("Preferences.Economy.cash"),
+    ECONOMY_COINS_FORMAT("Preferences.Economy.coins"),
+    TAG_INFORMATION("Format.Tag.information");
 
     private final String path;
     public Object value;
@@ -40,5 +45,9 @@ public enum Settings {
 
     public double asDouble() {
         return (double) this.value;
+    }
+
+    public List<String> asList() {
+        return (List<String>) this.value;
     }
 }

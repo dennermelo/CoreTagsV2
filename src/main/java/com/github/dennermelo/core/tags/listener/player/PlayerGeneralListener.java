@@ -11,14 +11,14 @@ public class PlayerGeneralListener implements Listener {
 
     @EventHandler
     public void playerJoinEvent(PlayerJoinEvent event) {
+        event.setJoinMessage(null);
         UserManager userManager = CoreTags.getUserManager();
 
-        userManager.getUsers().clear();
-        User user = new User(event.getPlayer().getName());
-        user.addTagInUse(CoreTags.getTagManager().getTag("Pro"));
-        user.addTagInUse(CoreTags.getTagManager().getTag("Master"));
-        user.addTagInUse(CoreTags.getTagManager().getTag("Grandmaster"));
-        userManager.addUser(user);
-        event.getPlayer().sendMessage("§aBem vindo ao servidor §e§lCore§a!");
+        if (!userManager.hasUser(event.getPlayer().getName())) {
+            userManager.addUser(new User(event.getPlayer().getName()));
+        }
+        for (int i = 0; i < 100; i++) {
+            event.getPlayer().sendMessage("");
+        }
     }
 }

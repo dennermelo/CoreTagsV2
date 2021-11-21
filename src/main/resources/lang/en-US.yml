@@ -1,0 +1,28 @@
+Inventories:
+  Tag:
+    equipped: '&aYou are currently using this tag.'
+    owned: '&8You have this tag, click to equip it.'
+    not-owned: '&8You do not have this tag, click to purchase it.'
+  Name:
+    main: 'Tags: Main menu'
+    rarities: 'Tags: Rarities'
+
+Messages:
+  Tag:
+    Command:
+      Usage:
+        tag: '&5&lTAGS: &7Use &f/tag <give/take> <player> <tag>&7.'
+        give: '&5&lTAGS: &7Use &f/tag give <player> <tag>&7.'
+        take: '&5&lTAGS: &7Use &f/tag take <player> <tag>&7.'
+      give: '&2&lYUPPIE! &7You have give %tag% &7to player &f%player%&7.'
+      take: '&2&lYUPPIE! &7You have removed the tag %tag% &7from the player &f%player%&7.'
+    equipped: '&2&lYUPPIE! &7You have just equipped the %tag% &7successfully.'
+    unequipped: '&2&lYUPPIE! &7You just unequipped the %tag% &7successfully.'
+    owned: '&2&lYUPPIE! &7You have just acquired the tag %tag% &7successfully.'
+    max-in-use: '&4&lWAIT... &7You have the maximum number of tags equipped, remove one and try again.'
+  Error:
+    not-have-economy: '&4&lWAIT... &7You do not have enough %economy% &7to proceed with the transaction.'
+    without-permission: '&4&lWAIT... &7You do not have permission to execute this command.'
+    tag-not-exist: '&4&lWAIT... &7The %tag% tag &7does not exist.'
+    player-without-tag: '&4&lWAIT... &7The player %player% &7does not have this tag.'
+    player-not-exist: '&4&lWAIT... &7The player %player% &7does not exist.'

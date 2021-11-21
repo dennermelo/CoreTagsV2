@@ -3,6 +3,8 @@ package com.github.dennermelo.core.tags.manager;
 import com.github.dennermelo.core.tags.CoreTags;
 import com.github.dennermelo.core.tags.model.Tag;
 import com.github.dennermelo.core.tags.model.User;
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -69,11 +71,18 @@ public class UserManager {
                 user.setTags(tags);
                 user.setTagsInUse(usingTags);
                 this.addUser(user);
+                stm.close();
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        for (Player player : Bukkit.getOnlinePlayers()) {
+            if (!hasUser(player.getName())) {
+                User user = new User(player.getName());
+            }
+        }
+
     }
 
     public void save() {

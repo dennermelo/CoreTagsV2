@@ -2,9 +2,10 @@ package com.github.dennermelo.core.tags.sql.mysql;
 
 
 import com.github.dennermelo.core.tags.CoreTags;
-import org.bukkit.plugin.java.JavaPlugin;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.logging.Level;
 
 public class MySQLConnection {

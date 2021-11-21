@@ -29,21 +29,17 @@ public class InventoryBuilder<T extends InventoryItem> {
     private final String inventoryName;
     @Getter
     private final Inventory inventory;
-
+    private final HashMap<Object, Object> DATA = new HashMap<>();
+    private final HashMap<ButtonType, Pair<Integer, ItemStack>> PAGES = new HashMap<>();
+    private final ArrayList<InventoryFormat<T>> FORMATS = new ArrayList<>();
     @Getter
     private int page = 1;
     @Getter
     private int size = 0;
-
     private int exit;
     private int start = 0;
     private int value = 0;
-
     private Function<Integer, Boolean> scape;
-
-    private final HashMap<Object, Object> DATA = new HashMap<>();
-    private final HashMap<ButtonType, Pair<Integer, ItemStack>> PAGES = new HashMap<>();
-    private final ArrayList<InventoryFormat<T>> FORMATS = new ArrayList<>();
 
     /**
      * @param name  the name of inventory
@@ -390,6 +386,19 @@ public class InventoryBuilder<T extends InventoryItem> {
 
 
     /**
+     * Private enum of buttons to easy
+     * skip and back pages of the inventory
+     */
+    @AllArgsConstructor
+    private enum ButtonType {
+
+        BACK(-1),
+        NEXT(1);
+
+        private final int value;
+    }
+
+    /**
      * Private class to format the inventory with more than one parameters T
      */
     private class MultiValueInventoryFormat implements InventoryFormat<T> {
@@ -481,18 +490,5 @@ public class InventoryBuilder<T extends InventoryItem> {
             }
 
         }
-    }
-
-    /**
-     * Private enum of buttons to easy
-     * skip and back pages of the inventory
-     */
-    @AllArgsConstructor
-    private enum ButtonType {
-
-        BACK(-1),
-        NEXT(1);
-
-        private final int value;
     }
 }

@@ -1,0 +1,28 @@
+Inventories:
+  Tag:
+    equipped: '&aAtualmente você está utilizando esta tag.'
+    owned: '&8Você possui esta tag, clique para equipa-la.'
+    not-owned: '&8Você não possui esta tag, clique para adquiri-la.'
+  Name:
+    main: 'Tags: Menu principal'
+    rarities: 'Tags: Raridades'
+
+Messages:
+  Tag:
+    Command:
+      Usage:
+        tag: '&5&lTAGS: &7Utilize &f/tag <give/take> <player> <tag>&7.'
+        give: '&5&lTAGS: &7Utilize &f/tag give <player> <tag>&7.'
+        take: '&5&lTAGS: &7Utilize &f/tag take <player> <tag>&7.'
+      give: '&2&lPRONTO! &7Você adicionou a tag %tag% &7ao jogador &f%player%&7.'
+      take: '&2&lPRONTO! &7Você retirou a tag %tag% &7do jogador &f%player%&7.'
+    equipped: '&2&lPRONTO! &7Você acabou de equipar a tag %tag% &7com sucesso.'
+    unequipped: '&2&lPRONTO! &7Você acabou de desequipar a tag %tag% &7com sucesso.'
+    owned: '&2&lPRONTO! &7Você acabou de adquirir a tag %tag% &7com sucesso.'
+    max-in-use: '&4&lESPERA AÍ! &7Você está com o máximo de tags equipadas, remova uma e tente novamente.'
+  Error:
+    not-have-economy: '&4&lOPA! &7Você não possui %economy% &7suficiente para prosseguir com a transação.'
+    without-permission: '&4&lOPA! &7Você não possui permissão para executar este comando.'
+    tag-not-exist: '&4&lOPA! &7A tag %tag% &7não existe.'
+    player-without-tag: '&4&lOPA! &7O jogador %player% &7não possui esta tag.'
+    player-not-exist: '&4&lOPA! &7O jogador %player% &7não existe.'

@@ -12,8 +12,8 @@ import java.util.logging.Level;
 
 public class SQLiteConnection {
 
-    private Connection connection;
     private final CoreTags instance;
+    private Connection connection;
 
     public SQLiteConnection(CoreTags instance) {
         this.instance = instance;

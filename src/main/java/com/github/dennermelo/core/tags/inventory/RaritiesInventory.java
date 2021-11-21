@@ -6,6 +6,7 @@ import com.github.dennermelo.core.tags.model.Tag;
 import com.github.dennermelo.core.tags.model.User;
 import com.github.dennermelo.core.tags.model.inventory.InventoryBuilder;
 import com.github.dennermelo.core.tags.model.inventory.item.ItemList;
+import com.github.dennermelo.core.tags.type.Messages;
 import org.bukkit.entity.Player;
 
 import java.util.stream.Collectors;
@@ -13,15 +14,18 @@ import java.util.stream.Collectors;
 public class RaritiesInventory {
 
     public void selector(Player player) {
-        new InventoryBuilder<Rarity>("§7Filtrar: Raridades", 3)
+        new InventoryBuilder<Rarity>(Messages.INVENTORIES_NAME_RARITIES.asString(), 3)
                 .withItems(CoreTags.getRarityManager().getRarities(), (event, builder, value) -> {
                     open(player, value);
                 })
                 .withSlotStart(11)
                 .withSlotExit(15)
                 .withPage(1, 5)
-                .withNextPage(16, ItemList.next_page)
-                .withBackPage(10, ItemList.previous_page)
+                .withNextPage(16, ItemList.INVENTORIES_NEXT_PAGE.get().clone())
+                .withBackPage(10, ItemList.INVENTORIES_PREVIOUS_PAGE.get().clone())
+                .withItem(22, ItemList.INVENTORIES_BACK.get().clone(), (event, builder, value) -> {
+                    new TagsInventory().open(player);
+                })
                 .open(player);
     }
 
@@ -35,8 +39,11 @@ public class RaritiesInventory {
                 .withSlotStart(11)
                 .withSlotExit(15)
                 .withPage(1, 5)
-                .withNextPage(16, ItemList.next_page)
-                .withBackPage(10, ItemList.previous_page)
+                .withNextPage(16, ItemList.INVENTORIES_NEXT_PAGE.get().clone())
+                .withBackPage(10, ItemList.INVENTORIES_PREVIOUS_PAGE.get().clone())
+                .withItem(22, ItemList.INVENTORIES_BACK.get().clone(), (event, builder, value) -> {
+                    selector(player);
+                })
                 .open(player);
     }
 

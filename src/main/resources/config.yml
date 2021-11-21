@@ -8,4 +8,47 @@ Connection:
     database: 's6351_teste'
 
 Preferences:
+  language: 'pt-BR'
+  # Quantidade de tags permitidas a serem usadas;
   max-tags-in-use: 3
+  Economy:
+    cash: '&6cash'
+    coins: '&2coins'
+
+Items:
+  Tag:
+    # Lore não deverá ser definida nestes itens, caso contrário, os mesmos serão ignorados;
+    using: '342;0;&7Tag: &e%format%;<nl>'
+    owned: '342;0;&7Tag: &e%format%;<nl>'
+    not-owned: '328;0;&7Tag: &e%format%;<nl>'
+  Filters:
+    filter: '145;0;&8Filtrar tags;<nl>&7Clique para filtrar tags por raridade.'
+    Equipped:
+      default: '351;8;&8Mostrar tags equipadas;<nl>&7Clique para mostrar somente tags equipadas.'
+      selected: '351;10;&aMostrando tags equipadas;<nl>&7Você está visualizando as tags equipadas.'
+    Bought:
+      default: '351;8;&8Mostrar tags compradas;<nl>&7Clique para mostrar somente tags compradas.'
+      selected: '351;10;&aMostrando tags compradas;<nl>&7Você está visualizando as tags compradas.'
+    Not-Bought:
+      default: '351;8;&8Mostrar tags não compradas;<nl>&7Clique para mostrar somente tags não compradas.'
+      selected: '351;10;&aMostrando tags não compradas;<nl>&7Você está visualizando as tags não compradas.'
+    All:
+      default: '351;8;&8Mostrar todas as tags;<nl>&7Clique para mostrar todas as tags.'
+      selected: '351;10;&aMostrando todas as tags;<nl>&7Você está visualizando todas as tags.'
+  Inventories:
+    next-page: '262;0;&aPróxima página;<nl>&7Clique para navegar para a próxima página.'
+    previous-page: '262;0;&cPágina anterior;<nl>&7Clique para navegar para a página anterior.'
+    back: '166;0;&cVoltar;<nl>&7Clique para voltar.'
+
+Format:
+  Tag:
+    information:
+      - ''
+      - '&7Informações sobre esta tag:'
+      - ''
+      - '&7Descrição:'
+      - '%description%'
+      - ''
+      - '&7Formato da Tag: &e%format%'
+      - '&7Raridade: &f%rarity%'
+      - '&7Valor: &6$ &7%price% %type%'

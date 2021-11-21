@@ -2,30 +2,50 @@ package com.github.dennermelo.core.tags.model.inventory.item;
 
 import com.github.dennermelo.core.tags.model.inventory.ItemBuilder;
 import org.bukkit.Material;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.Arrays;
+import java.util.List;
 
-public class ItemList {
+public enum ItemList {
 
-    public static ItemStack filter,
-            show_equipped,
-            show_owned,
-            not_owned,
-            all_tags,
-            next_page,
-            previous_page;
+    TAG_ITEM_USING("Items.Tag.using"),
+    TAG_ITEM_OWNED("Items.Tag.owned"),
+    TAG_ITEM_NOT_OWNED("Items.Tag.not-owned"),
+    FILTERS_FILTER_ITEM("Items.Filters.filter"),
+    FILTERS_EQUIPPED_ITEM("Items.Filters.Equipped.default"),
+    FILTERS_EQUIPPED_ITEM_SELECTED("Items.Filters.Equipped.selected"),
+    FILTERS_BOUGHT_ITEM("Items.Filters.Bought.default"),
+    FILTERS_BOUGHT_ITEM_SELECTED("Items.Filters.Bought.selected"),
+    FILTERS_NOT_BOUGHT_ITEM("Items.Filters.Not-Bought.default"),
+    FILTERS_NOT_BOUGHT_ITEM_SELECTED("Items.Filters.Not-Bought.selected"),
+    FILTERS_ALL_ITEM("Items.Filters.All.default"),
+    FILTERS_ALL_ITEM_SELECTED("Items.Filters.All.selected"),
+    INVENTORIES_NEXT_PAGE("Items.Inventories.next-page"),
+    INVENTORIES_PREVIOUS_PAGE("Items.Inventories.previous-page"),
+    INVENTORIES_BACK("Items.Inventories.back"),
+    ;
 
+    private final String path;
+    private ItemStack item;
 
-    public void load() {
-        // 8 cinza; 10 verde;
-        filter = new ItemBuilder(Material.ANVIL).setName("§8Filtrar tags").setLore(Arrays.asList("", "§7Clique para filtrar tags por raridade.")).build();
-        show_equipped = new ItemBuilder(Material.INK_SACK).setDurability((short) 8).setName("§7Mostrar Tags Equipadas").setLore(Arrays.asList("", "§7Clique para mostrar tags equipadas.")).build();
-        show_owned = new ItemBuilder(Material.INK_SACK).setDurability((short) 8).setName("§7Mostrar Tags Compradas").setLore(Arrays.asList("", "§7Clique para mostrar tags compradas.")).build();
-        not_owned = new ItemBuilder(Material.INK_SACK).setDurability((short) 8).setName("§7Mostrar Tags Não Compradas").setLore(Arrays.asList("", "§7Clique para mostrar tags não compradas.")).build();
-        all_tags = new ItemBuilder(Material.INK_SACK).setDurability((short) 8).setName("§7Mostrar Todas as Tags").setLore(Arrays.asList("", "§7Clique para visualizar todas as tags do servidor.")).build();
+    ItemList(String path) {
+        this.path = path;
+    }
 
-        next_page = new ItemBuilder(Material.ARROW).setName("§aPróxima Página").build();
-        previous_page = new ItemBuilder(Material.ARROW).setName("§aPágina Anterior").build();
+    public static void load(FileConfiguration config) {
+        for (ItemList item : ItemList.values()) {
+            String[] itemString = config.getString(item.path).split(";");
+            int id = Integer.parseInt(itemString[0]);
+            short data = Short.parseShort(itemString[1]);
+            String name = itemString[2].replace("&", "§");
+            List<String> lore = Arrays.asList(itemString[3].replace("&", "§").split("<nl>"));
+            item.item = new ItemBuilder(Material.getMaterial(id)).setDurability(data).setName(name).setLore(lore).build();
+        }
+    }
+
+    public ItemStack get() {
+        return item;
     }
 }
