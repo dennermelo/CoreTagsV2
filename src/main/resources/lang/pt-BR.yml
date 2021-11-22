@@ -21,7 +21,7 @@ Messages:
     owned: '&2&lPRONTO! &7Você acabou de adquirir a tag %tag% &7com sucesso.'
     max-in-use: '&4&lESPERA AÍ! &7Você está com o máximo de tags equipadas, remova uma e tente novamente.'
   Error:
-    not-have-economy: '&4&lOPA! &7Você não possui %economy% &7suficiente para prosseguir com a transação.'
+    not-have-economy: '&4&lOPA! &7Você não possui %economy% &7suficientes para prosseguir com a transação.'
     without-permission: '&4&lOPA! &7Você não possui permissão para executar este comando.'
     tag-not-exist: '&4&lOPA! &7A tag %tag% &7não existe.'
     player-without-tag: '&4&lOPA! &7O jogador %player% &7não possui esta tag.'

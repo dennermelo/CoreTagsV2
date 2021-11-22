@@ -76,14 +76,13 @@ public class CoreTags extends JavaPlugin {
         }
         if (Bukkit.getPluginManager().isPluginEnabled("PlayerPoints")
                 && Bukkit.getPluginManager().isPluginEnabled("Vault")) {
-            playerPointsAPI = new PlayerPoints().getAPI();
+            playerPointsAPI = ((PlayerPoints) Bukkit.getPluginManager().getPlugin("PlayerPoints")).getAPI();
             RegisteredServiceProvider<Economy> rsp = getServer().getServicesManager().getRegistration(Economy.class);
             if (rsp != null) {
                 economy = rsp.getProvider();
             }
         } else {
             getLogger().warning("PlayerPoints and/or Vault plugin is not installed.");
-            Bukkit.getPluginManager().disablePlugin(this);
         }
 
         // Registering events;
