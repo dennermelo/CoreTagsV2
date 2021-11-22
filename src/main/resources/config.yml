@@ -1,11 +1,11 @@
 Connection:
   type: 'sqlite'
   MySQL:
-    host: '190.115.197.21'
+    host: 'localhost'
     port: '3306'
-    username: 'u6351_d2EEtdqZAM'
-    password: 'l3Rkr439aR@p.aUsrXm2vQhx'
-    database: 's6351_teste'
+    username: 'user'
+    password: 'pass'
+    database: 'database'
 
 Preferences:
   language: 'pt-BR'
