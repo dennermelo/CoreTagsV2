@@ -7,6 +7,7 @@ import com.github.dennermelo.core.tags.model.User;
 import com.github.dennermelo.core.tags.model.inventory.InventoryBuilder;
 import com.github.dennermelo.core.tags.model.inventory.item.ItemList;
 import com.github.dennermelo.core.tags.type.Messages;
+import com.github.dennermelo.core.tags.util.TagUtil;
 import org.bukkit.entity.Player;
 
 import java.util.stream.Collectors;
@@ -34,7 +35,7 @@ public class RaritiesInventory {
         new InventoryBuilder<Tag>("§7Filtrando: " + rarity.getFormat(), 3)
                 .addData("user", user)
                 .withItems(CoreTags.getTagManager().getTags().stream().filter(tag -> tag.getRarity() == rarity).collect(Collectors.toList()), (event, builder, value) -> {
-                    TagsInventory.tagClick(player, value);
+                    player.sendMessage(TagUtil.inventoryClick(player, value));
                 })
                 .withSlotStart(11)
                 .withSlotExit(15)

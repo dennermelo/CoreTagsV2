@@ -9,35 +9,11 @@ import com.github.dennermelo.core.tags.model.User;
 import com.github.dennermelo.core.tags.model.inventory.InventoryBuilder;
 import com.github.dennermelo.core.tags.model.inventory.item.ItemList;
 import com.github.dennermelo.core.tags.type.Messages;
+import com.github.dennermelo.core.tags.util.TagUtil;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 
 public class TagsInventory implements Listener {
-
-    public static void tagClick(Player player, Tag tag) {
-        User user = CoreTags.getUserManager().getUser(player.getName());
-        player.closeInventory();
-        if (user.getTagsInUse().contains(tag)) {
-            user.removeTagInUse(tag);
-            player.sendMessage(Messages.TAG_UNEQUIPPED.asString().replace("%tag%", tag.getFormat()));
-            player.closeInventory();
-        } else if (user.getTags().contains(tag)) {
-            if (user.getTagsInUse().size() < 3) {
-                user.getTagsInUse().add(tag);
-            } else {
-                player.sendMessage(Messages.TAG_MAX_IN_USE.asString());
-                return;
-            }
-            user.getTags().add(tag);
-            player.sendMessage(Messages.TAG_EQUIPPED.asString().replace("%tag%", tag.getFormat()));
-        } else {
-            if (user.getTagsInUse().size() < 3) {
-                user.getTagsInUse().add(tag);
-            }
-            user.getTags().add(tag);
-            player.sendMessage(Messages.TAG_OWNED.asString().replace("%tag%", tag.getFormat()));
-        }
-    }
 
     public void open(Player player) {
         User user = CoreTags.getUserManager().getUser(player.getName());
@@ -61,7 +37,7 @@ public class TagsInventory implements Listener {
                     event.setCancelled(true);
                 })
                 .withItems(CoreTags.getTagManager().getTags(), (event, builder, value) -> {
-                    tagClick(player, value);
+                    player.sendMessage(TagUtil.inventoryClick(player, value));
                 })
                 .withNextPage(25, ItemList.INVENTORIES_NEXT_PAGE.get().clone())
                 .withBackPage(19, ItemList.INVENTORIES_PREVIOUS_PAGE.get().clone())

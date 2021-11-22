@@ -8,6 +8,7 @@ import com.github.dennermelo.core.tags.model.User;
 import com.github.dennermelo.core.tags.model.inventory.InventoryBuilder;
 import com.github.dennermelo.core.tags.model.inventory.item.ItemList;
 import com.github.dennermelo.core.tags.type.Messages;
+import com.github.dennermelo.core.tags.util.TagUtil;
 import org.bukkit.entity.Player;
 
 import java.util.stream.Collectors;
@@ -35,7 +36,7 @@ public class NotOwnedTagsInventory {
                     new TagsInventory().open(player);
                 })
                 .withItems(CoreTags.getTagManager().getTags().stream().filter(tag -> !user.getTags().contains(tag)).collect(Collectors.toList()), (event, builder, value) -> {
-                    TagsInventory.tagClick(player, value);
+                    player.sendMessage(TagUtil.inventoryClick(player, value));
                 })
                 .withNextPage(25, ItemList.INVENTORIES_NEXT_PAGE.get().clone())
                 .withBackPage(19, ItemList.INVENTORIES_PREVIOUS_PAGE.get().clone())
