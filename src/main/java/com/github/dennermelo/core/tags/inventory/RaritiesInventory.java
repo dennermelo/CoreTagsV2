@@ -32,7 +32,7 @@ public class RaritiesInventory {
 
     public void open(Player player, Rarity rarity) {
         User user = CoreTags.getUserManager().getUser(player.getName());
-        new InventoryBuilder<Tag>("§7Filtrando: " + rarity.getFormat(), 3)
+        new InventoryBuilder<Tag>(Messages.INVENTORIES_NAME_RARITY_FILTER.asString().replace("%rarity%", rarity.getFormat()), 3)
                 .addData("user", user)
                 .withItems(CoreTags.getTagManager().getTags().stream().filter(tag -> tag.getRarity() == rarity).collect(Collectors.toList()), (event, builder, value) -> {
                     player.sendMessage(TagUtil.inventoryClick(player, value));

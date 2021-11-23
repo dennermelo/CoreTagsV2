@@ -16,7 +16,10 @@ public enum Settings {
     ECONOMY_CASH_FORMAT("Preferences.Economy.cash"),
     ECONOMY_COINS_FORMAT("Preferences.Economy.coins"),
     PERMISSION_ADMIN("Preferences.admin-permission"),
-    TAG_INFORMATION("Format.Tag.information");
+    TAG_INFORMATION("Format.Tag.information"),
+    RARITY_ITEM_NAME("Format.Rarity.name"),
+    RARITY_ITEM_LORE("Format.Rarity.information"),
+    ;
 
     private final String path;
     public Object value;
@@ -33,7 +36,7 @@ public enum Settings {
     }
 
     public String asString() {
-        return (String) this.value;
+        return ((String) this.value).replace("&", "§");
     }
 
     public boolean asBoolean() {

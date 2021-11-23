@@ -12,6 +12,7 @@ public enum Messages {
     INVENTORIES_TAG_OWNED("Inventories.Tag.owned"),
     INVENTORIES_TAG_NOT_OWNED("Inventories.Tag.not-owned"),
     INVENTORIES_NAME_MAIN("Inventories.Name.main"),
+    INVENTORIES_NAME_RARITY_FILTER("Inventories.Name.rarity-filter"),
     INVENTORIES_NAME_RARITIES("Inventories.Name.rarities"),
     TAG_COMMAND_USAGE("Messages.Tag.Command.Usage.tag"),
     TAG_COMMAND_USAGE_GIVE("Messages.Tag.Command.Usage.give"),

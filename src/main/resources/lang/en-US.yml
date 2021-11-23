@@ -6,6 +6,7 @@ Inventories:
   Name:
     main: 'Tags: Main menu'
     rarities: 'Tags: Rarities'
+    rarity-filter: 'Filter: %rarity%'
 
 Messages:
   Tag:

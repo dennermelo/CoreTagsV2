@@ -1,5 +1,15 @@
+# [EN-US] There are two connection methods in this plugin,
+# [EN-US] using SQLite or MySQL, if you don't have any database
+# [EN-US] or don't know how to use MySQL, leave the sqlite option.
+# [PT-BR] Existem dois métodos de conexão neste plugin,
+# [PT-BR] usando SQLite ou MySQL, se você não tiver nenhum banco de dados
+# [PT-BR] ou não sabe usar o MySQL, deixe a opção sqlite.
 Connection:
+  # sqlite;mysql
   type: 'sqlite'
+  ## This is the MySQL database configuration.
+  ## Use the data provided by your server, any information
+  ## wrong in this process will stop the connection.
   MySQL:
     host: 'localhost'
     port: '3306'
@@ -8,48 +18,71 @@ Connection:
     database: 'database'
 
 Preferences:
-  language: 'pt-BR'
-  # Quantidade de tags permitidas a serem usadas;
+  # [en-US] The language of the plugin.
+  # [pt-BR] A linguagem padrão do plugin.
+  language: 'en-US'
+  # [en-US] The default tags per use of the player.
+  # [pt-BR] O padrão de tags por uso permitidas oa jogador.
   max-tags-in-use: 3
+  # [en-US] The permission to use admin commands.
+  # [pt-BR] A permissão para usar comandos de administrador.
   admin-permission: 'coretags.admin'
+  # [en-US] The name and format of the economies.
+  # [pt-BR] O nome e formato das economias.
   Economy:
     cash: '&6cash'
     coins: '&2coins'
 
 Items:
   Tag:
-    # Lore não deverá ser definida nestes itens, caso contrário, os mesmos serão ignorados;
+    # [en-US] The item name. *Dont delete ;<nl>*
+    # [pt-BR] O nome do item. *Não apague ;<nl>*
+    # Format: itemID;data;displayName;<nl>
     using: '342;0;&7Tag: &e%format%;<nl>'
     owned: '342;0;&7Tag: &e%format%;<nl>'
     not-owned: '328;0;&7Tag: &e%format%;<nl>'
   Filters:
-    filter: '145;0;&8Filtrar tags;<nl>&7Clique para filtrar tags por raridade.'
+    # [en-US] The item name. *<nl> here, is used for create a new line in the lore.*
+    # [pt-BR] O nome do item. *<nl> aqui, é usado para criar uma nova linha no lore.*
+    # Format: itemID;data;displayName;lore
+    filter: '145;0;&8Filter tags;<nl>&7Click to filter tags by rarity.'
     Equipped:
-      default: '351;8;&8Mostrar tags equipadas;<nl>&7Clique para mostrar somente tags equipadas.'
-      selected: '351;10;&aMostrando tags equipadas;<nl>&7Você está visualizando as tags equipadas.'
+      default: '351;8;&8Show tags equipped;<nl>&7Click to view only equipped tags.'
+      selected: '351;10;&aViewing tags equipped;<nl>&7Now you are viewing only equipped tags.'
     Bought:
-      default: '351;8;&8Mostrar tags compradas;<nl>&7Clique para mostrar somente tags compradas.'
-      selected: '351;10;&aMostrando tags compradas;<nl>&7Você está visualizando as tags compradas.'
+      default: '351;8;&8Show owned tags;<nl>&7Click to view only owned tags.'
+      selected: '351;10;&aViewing owned tags;<nl>&7Now you are viewing only owned tags.'
     Not-Bought:
-      default: '351;8;&8Mostrar tags não compradas;<nl>&7Clique para mostrar somente tags não compradas.'
-      selected: '351;10;&aMostrando tags não compradas;<nl>&7Você está visualizando as tags não compradas.'
+      default: '351;8;&8View not owned tags;<nl>&7Click to view only not owned tags.'
+      selected: '351;10;&aViewing not owned tags;<nl>&7Now you are viewing only not owned tags.'
     All:
-      default: '351;8;&8Mostrar todas as tags;<nl>&7Clique para mostrar todas as tags.'
-      selected: '351;10;&aMostrando todas as tags;<nl>&7Você está visualizando todas as tags.'
+      default: '351;8;&8View all tags;<nl>&7Click to view all tags.'
+      selected: '351;10;&aViewing all tags;<nl>&7Now you are viewing all tags.'
   Inventories:
-    next-page: '262;0;&aPróxima página;<nl>&7Clique para navegar para a próxima página.'
-    previous-page: '262;0;&cPágina anterior;<nl>&7Clique para navegar para a página anterior.'
-    back: '166;0;&cVoltar;<nl>&7Clique para voltar.'
+    next-page: '262;0;&aNext page;<nl>&7Click to navigate to next page.'
+    previous-page: '262;0;&cPrevious page;<nl>&7Click to navigate to previous page.'
+    back: '166;0;&cBack;<nl>&7Click to back.'
 
 Format:
+  # [en-US] The format of the tag in inventory.
+  # [pt-BR] O formato da tag no inventário.
   Tag:
     information:
       - ''
-      - '&7Informações sobre esta tag:'
+      - '&7Information of this tag:'
       - ''
-      - '&7Descrição:'
+      - '&7Description:'
       - '%description%'
       - ''
-      - '&7Formato da Tag: &e%format%'
-      - '&7Raridade: &f%rarity%'
-      - '&7Valor: &6$ &7%price% %type%'
+      - '&7Format: &e%format%'
+      - '&7Rarity: &f%rarity%'
+      - '&7Price: &6$ &7%price% %type%'
+  Rarity:
+    name: '&7Rarity: %rarity%'
+    information:
+      - ''
+      - '&7List only tags with this rarity.'
+      - ''
+      - '&7Actually, there are &f%amount% &7tags with this rarity.'
+      - ''
+      - '&aClick to filter tags by rarity.'
