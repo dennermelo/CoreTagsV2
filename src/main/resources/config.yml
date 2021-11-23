@@ -11,6 +11,7 @@ Preferences:
   language: 'pt-BR'
   # Quantidade de tags permitidas a serem usadas;
   max-tags-in-use: 3
+  admin-permission: 'coretags.admin'
   Economy:
     cash: '&6cash'
     coins: '&2coins'

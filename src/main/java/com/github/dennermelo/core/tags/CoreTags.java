@@ -1,7 +1,5 @@
 package com.github.dennermelo.core.tags;
 
-import br.com.devpaulo.legendchat.api.Legendchat;
-import br.com.devpaulo.legendchat.channels.ChannelManager;
 import com.github.dennermelo.core.tags.command.TagsCommand;
 import com.github.dennermelo.core.tags.listener.ListenerManager;
 import com.github.dennermelo.core.tags.listener.player.PlayerGeneralListener;
@@ -11,11 +9,11 @@ import com.github.dennermelo.core.tags.manager.TagManager;
 import com.github.dennermelo.core.tags.manager.UserManager;
 import com.github.dennermelo.core.tags.model.inventory.InventoryListener;
 import com.github.dennermelo.core.tags.model.inventory.item.ItemList;
+import com.github.dennermelo.core.tags.papi.TagsExpansion;
 import com.github.dennermelo.core.tags.setting.Settings;
 import com.github.dennermelo.core.tags.sql.SQLManager;
 import com.github.dennermelo.core.tags.type.Messages;
 import lombok.Getter;
-import lombok.SneakyThrows;
 import net.milkbowl.vault.economy.Economy;
 import org.black_ixx.playerpoints.PlayerPoints;
 import org.black_ixx.playerpoints.PlayerPointsAPI;
@@ -43,7 +41,6 @@ public class CoreTags extends JavaPlugin {
         return getPlugin(CoreTags.class);
     }
 
-    @SneakyThrows
     @Override
     public void onEnable() {
 
@@ -52,6 +49,9 @@ public class CoreTags extends JavaPlugin {
 
         // Load settings;
         Settings.load();
+
+        // Loading messages;
+        Messages.load();
 
         // Initializing managers;
         sqlManager = new SQLManager(this);
@@ -67,22 +67,31 @@ public class CoreTags extends JavaPlugin {
         // Loading item cache;
         ItemList.load(getInstance().getConfig());
 
-        Messages.load();
-
-        // Checking if Legendchat plugin is installed;
+        // Checking for enabled plugins;
         if (Bukkit.getPluginManager().isPluginEnabled("Legendchat")) {
-            ChannelManager channelManager = Legendchat.getChannelManager();
             listenerManager.add(new PlayerLegendChatListener());
+        } else {
+            CoreTags.getInstance().getLogger().warning("Legenchat não está instalado, tags de chat não funcionarão sem ele.");
         }
+        // Checking if PlayerPoints & Vault plugin is installed;
         if (Bukkit.getPluginManager().isPluginEnabled("PlayerPoints")
                 && Bukkit.getPluginManager().isPluginEnabled("Vault")) {
-            playerPointsAPI = ((PlayerPoints) Bukkit.getPluginManager().getPlugin("PlayerPoints")).getAPI();
-            RegisteredServiceProvider<Economy> rsp = getServer().getServicesManager().getRegistration(Economy.class);
+            CoreTags.playerPointsAPI = ((PlayerPoints) Bukkit.getPluginManager().getPlugin("PlayerPoints")).getAPI();
+            RegisteredServiceProvider<Economy> rsp = Bukkit.getServer().getServicesManager().getRegistration(Economy.class);
             if (rsp != null) {
-                economy = rsp.getProvider();
+                CoreTags.economy = rsp.getProvider();
             }
         } else {
-            getLogger().warning("PlayerPoints and/or Vault plugin is not installed.");
+            getLogger().warning("PlayerPoints e/ou Vault não está instalado, desabilitando plugin.");
+            // Disabling plugin
+            getPluginLoader().disablePlugin(this);
+        }
+        // Checking if PlaceholderAPI plugin is installed;
+        if (Bukkit.getPluginManager().isPluginEnabled("PlaceholderAPI")) {
+            // Registering placeholders;
+            new TagsExpansion().register();
+        } else {
+            getLogger().info("PlaceholderAPI não está instalado, é recomendado possuir.");
         }
 
         // Registering events;
@@ -96,6 +105,7 @@ public class CoreTags extends JavaPlugin {
         // Loading users;
         userManager.load();
 
+        // Running auto-save;
         runAutoSave();
     }
 
@@ -105,13 +115,11 @@ public class CoreTags extends JavaPlugin {
         userManager.save();
     }
 
+    // Auto-save;
     public void runAutoSave() {
-        Bukkit.getScheduler().runTaskLater(this, new Runnable() {
-            @Override
-            public void run() {
-                getUserManager().save();
-                getLogger().info("[Auto-Save] All users have been updated in database.");
-            }
+        Bukkit.getScheduler().runTaskLater(this, () -> {
+            getUserManager().save();
+            getLogger().info("[Auto-Save] All users have been updated in database.");
         }, 480 * 20L);
     }
 

@@ -1,6 +1,7 @@
 name: CoreTags
 version: 2.0.1-SNAPSHOT
 main: com.github.dennermelo.core.tags.CoreTags
-softdepend: [ Legendchat, PlayerPoints, Vault ]
+softdepend: [ Legendchat, PlaceholderAPI ]
+depend: [ PlayerPoints, Vault ]
 commands:
   tags:

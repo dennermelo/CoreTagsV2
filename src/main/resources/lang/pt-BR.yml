@@ -11,18 +11,19 @@ Messages:
   Tag:
     Command:
       Usage:
-        tag: '&5&lTAGS: &7Utilize &f/tag <give/take> <player> <tag>&7.'
-        give: '&5&lTAGS: &7Utilize &f/tag give <player> <tag>&7.'
-        take: '&5&lTAGS: &7Utilize &f/tag take <player> <tag>&7.'
+        tag: '&5&lTAGS: &7Utilize &f/tags <give/take> <player> <tag>&7.'
+        give: '&5&lTAGS: &7Utilize &f/tags give <player> <tag>&7.'
+        take: '&5&lTAGS: &7Utilize &f/tags take <player> <tag>&7.'
       give: '&2&lPRONTO! &7Você adicionou a tag %tag% &7ao jogador &f%player%&7.'
       take: '&2&lPRONTO! &7Você retirou a tag %tag% &7do jogador &f%player%&7.'
     equipped: '&2&lPRONTO! &7Você acabou de equipar a tag %tag% &7com sucesso.'
     unequipped: '&2&lPRONTO! &7Você acabou de desequipar a tag %tag% &7com sucesso.'
-    owned: '&2&lPRONTO! &7Você acabou de adquirir a tag %tag% &7com sucesso.'
+    owned: '&2&lPRONTO! &7Você acabou de adquirir a tag %tag% &7 por &6$ &7%price% %economy%&7.'
     max-in-use: '&4&lESPERA AÍ! &7Você está com o máximo de tags equipadas, remova uma e tente novamente.'
   Error:
     not-have-economy: '&4&lOPA! &7Você não possui %economy% &7suficientes para prosseguir com a transação.'
     without-permission: '&4&lOPA! &7Você não possui permissão para executar este comando.'
-    tag-not-exist: '&4&lOPA! &7A tag %tag% &7não existe.'
+    tag-not-exist: '&4&lOPA! &7A tag &f%tag% &7não existe.'
     player-without-tag: '&4&lOPA! &7O jogador %player% &7não possui esta tag.'
-    player-not-exist: '&4&lOPA! &7O jogador %player% &7não existe.'
+    player-not-exist: '&4&lOPA! &7O jogador &f%player% &7não existe.'
+    player-already-have-tag: '&4&lOPA! &7O jogador &f%player% &7já possui esta tag.'

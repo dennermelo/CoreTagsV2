@@ -11,9 +11,9 @@ Messages:
   Tag:
     Command:
       Usage:
-        tag: '&5&lTAGS: &7Use &f/tag <give/take> <player> <tag>&7.'
-        give: '&5&lTAGS: &7Use &f/tag give <player> <tag>&7.'
-        take: '&5&lTAGS: &7Use &f/tag take <player> <tag>&7.'
+        tag: '&5&lTAGS: &7Use &f/tags <give/take> <player> <tag>&7.'
+        give: '&5&lTAGS: &7Use &f/tags give <player> <tag>&7.'
+        take: '&5&lTAGS: &7Use &f/tags take <player> <tag>&7.'
       give: '&2&lYUPPIE! &7You have give %tag% &7to player &f%player%&7.'
       take: '&2&lYUPPIE! &7You have removed the tag %tag% &7from the player &f%player%&7.'
     equipped: '&2&lYUPPIE! &7You have just equipped the %tag% &7successfully.'
@@ -26,3 +26,4 @@ Messages:
     tag-not-exist: '&4&lWAIT... &7The %tag% tag &7does not exist.'
     player-without-tag: '&4&lWAIT... &7The player %player% &7does not have this tag.'
     player-not-exist: '&4&lWAIT... &7The player %player% &7does not exist.'
+    player-already-have-tag: '&4&lWAIT... &7The player %player% &7already has this tag.'

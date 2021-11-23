@@ -23,6 +23,7 @@ public class ListenerManager {
     public void register() {
         listeners.forEach(listener -> {
             instance.getServer().getPluginManager().registerEvents(listener, instance);
+            instance.getLogger().info("Registered listener: " + listener.getClass().getSimpleName());
         });
     }
 }

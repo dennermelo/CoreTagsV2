@@ -35,7 +35,10 @@ public class TagUtil {
                     user.addTag(tag);
                     if (user.getTagsInUse().size() < Settings.MAX_TAGS_IN_USE.asInteger()) user.addTagInUse(tag);
                     player.playSound(player.getLocation(), Sound.NOTE_PLING, 1, 1);
-                    return Messages.TAG_OWNED.asString().replace("%tag%", tag.getFormat());
+                    return Messages.TAG_OWNED.asString()
+                            .replace("%tag%", tag.getFormat())
+                            .replace("%price%", NumberUtil.format(tag.getPrice()))
+                            .replace("%economy%", tag.getEconomy().toString());
                 } else {
                     player.playSound(player.getLocation(), Sound.VILLAGER_HAGGLE, 1, 1);
                     return Messages.ERROR_NOT_HAVE_ECONOMY.asString().replace("%economy%", tag.getEconomy().toString());

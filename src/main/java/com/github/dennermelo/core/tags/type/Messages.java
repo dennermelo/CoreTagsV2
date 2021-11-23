@@ -26,7 +26,9 @@ public enum Messages {
     ERROR_NOT_HAVE_PERMISSION("Messages.Error.without-permission"),
     ERROR_TAG_NOT_EXIST("Messages.Error.tag-not-exist"),
     ERROR_PLAYER_WITHOUT_TAG("Messages.Error.player-without-tag"),
-    ERROR_PLAYER_NOT_EXIST("Messages.Error.player-not-exist");
+    ERROR_PLAYER_NOT_EXIST("Messages.Error.player-not-exist"),
+    ERROR_PLAYER_ALREADY_HAVE_TAG("Messages.Error.player-already-have-tag"),
+    ;
 
     private final String path;
     private Object value;

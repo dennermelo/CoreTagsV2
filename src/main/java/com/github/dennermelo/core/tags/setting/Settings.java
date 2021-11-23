@@ -15,6 +15,7 @@ public enum Settings {
     MAX_TAGS_IN_USE("Preferences.max-tags-in-use"),
     ECONOMY_CASH_FORMAT("Preferences.Economy.cash"),
     ECONOMY_COINS_FORMAT("Preferences.Economy.coins"),
+    PERMISSION_ADMIN("Preferences.admin-permission"),
     TAG_INFORMATION("Format.Tag.information");
 
     private final String path;
