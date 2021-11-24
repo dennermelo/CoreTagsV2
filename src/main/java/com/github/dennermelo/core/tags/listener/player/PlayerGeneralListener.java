@@ -24,5 +24,13 @@ public class PlayerGeneralListener implements Listener {
         UserManager userManager = CoreTags.getUserManager();
         User user = userManager.getUser(event.getSender().getName());
         event.setMessage(PlaceholderAPI.setPlaceholders(event.getSender(), event.getMessage()));
+
+        if (event.getMessage().equalsIgnoreCase("cc")) {
+            for (int i = 0; i < 100; i++) {
+                event.getSender().sendMessage("");
+            }
+            event.getSender().sendMessage("§6§lCORE: §7O chat foi limpo por §f" + event.getSender().getName() + "§7.");
+            event.setCancelled(true);
+        }
     }
 }
